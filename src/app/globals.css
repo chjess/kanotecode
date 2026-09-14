@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #080B12;
+  --bg2: #0B1020;
+  --card: #0A1630;
+  --border: #162B55;
+  --text: #F5F7FF;
+  --muted: #A8B0C2;
+  --violet: #7B3FF2;
+  --blue: #3B82F6;
+  --green: #34D399;
+  --cyan-soft: #7DD3FC;
+  --radius: 14px;
+}
+
+@theme inline {
+  --color-bg: #080B12;
+  --color-bg2: #0B1020;
+  --color-card: #0A1630;
+  --color-border: #162B55;
+  --color-text: #F5F7FF;
+  --color-muted: #A8B0C2;
+  --color-violet: #7B3FF2;
+  --color-blue: #3B82F6;
+  --color-green: #34D399;
+  --color-cyan-soft: #7DD3FC;
+  --radius: 14px;
+  --font-display: "Be Vietnam Pro", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background: linear-gradient(var(--bg), var(--bg2));
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Custom utilities */
+.glass {
+  background: rgba(10, 22, 48, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glow-violet {
+  box-shadow: 0 0 40px rgba(123, 63, 242, 0.25);
+}
+
+.glow-violet-strong {
+  box-shadow: 0 0 60px rgba(123, 63, 242, 0.35);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--violet), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--violet); }
+
+/* Smooth anchor scroll */
+html { scroll-behavior: smooth; }
+
+/* Hero night background */
+.hero-night {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 40% at 82% 8%, rgba(124,77,255,.28), transparent 62%),
+    radial-gradient(45% 38% at 12% 18%, rgba(56,189,248,.20), transparent 60%),
+    radial-gradient(35% 30% at 55% 0%, rgba(244,114,182,.10), transparent 65%),
+    radial-gradient(1.5px 1.5px at 8% 22%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1px 1px at 18% 60%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 32% 14%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1px 1px at 45% 38%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1px 1px at 58% 12%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1.5px 1.5px at 66% 48%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1px 1px at 74% 26%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1px 1px at 88% 44%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 93% 12%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1px 1px at 26% 78%, rgba(125,211,252,.8), transparent 60%),
+    radial-gradient(1px 1px at 70% 70%, rgba(125,211,252,.7), transparent 60%),
+    linear-gradient(rgba(8,11,18,.72), rgba(8,11,18,.82)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200' preserveAspectRatio='xMidYMax slice'%3E%3Cpath d='M0,140 L160,70 L300,130 L470,50 L640,135 L800,80 L980,140 L1150,60 L1300,125 L1440,90 L1440,200 L0,200 Z' fill='%230D1B36'/%3E%3Cpath d='M0,170 L220,110 L420,165 L700,100 L950,168 L1200,112 L1440,160 L1440,200 L0,200 Z' fill='%230A1630'/%3E%3Ccircle cx='300' cy='150' r='2' fill='%2338BDF8' opacity='.8'/%3E%3Ccircle cx='720' cy='140' r='2' fill='%2338BDF8' opacity='.7'/%3E%3Ccircle cx='1080' cy='150' r='2' fill='%237C4DFF' opacity='.8'/%3E%3Ccircle cx='1240' cy='140' r='2' fill='%2338BDF8' opacity='.6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, 100% 190px;
+  background-position: center, center, center, center, center, center, center, center, center, center, center, center, center, center, center, bottom;
+}
+
+/* Story text readability */
+.story-text {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
