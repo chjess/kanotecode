@@ -656,7 +656,7 @@ function Download() {
               <h3 className="text-2xl font-extrabold text-white mb-2">KanoteCode v1.0-poc</h3>
               <p className="text-[#A8B0C2]">Android 9+ · ~76MB · Bản debug, cài trực tiếp file APK (cho phép "cài app không rõ nguồn" 1 lần).</p>
             </div>
-            <a href="/download/KanoteCode.apk" download className="inline-flex items-center justify-center rounded-full font-bold transition-all duration-200 cursor-pointer bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 px-8 py-4 text-lg whitespace-nowrap">⬇ Tải APK (76MB)</a>
+            <a href="https://github.com/DMV247/KanoteCode-Downloads/raw/refs/heads/main/Release/KanoteCode.apk" download className="inline-flex items-center justify-center rounded-full font-bold transition-all duration-200 cursor-pointer bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 px-8 py-4 text-lg whitespace-nowrap">⬇ Tải APK (76MB)</a>
           </motion.div>
         </motion.div>
       </div>
