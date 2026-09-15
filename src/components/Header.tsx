@@ -2,10 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Home, Shield, Compass, Download } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Home, Shield, Compass, Download, Menu, X } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   const items = [
     { href: "/", label: "Trang chủ", icon: Home },
@@ -19,6 +22,16 @@ export function Header() {
     return pathname === href;
   };
 
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#162B55]/30 bg-[#080B12]/80 backdrop-blur-xl">
       <div className="container mx-auto px-6">
@@ -30,33 +43,84 @@ export function Header() {
           >
             KanoteCode
           </Link>
-          <nav className="flex items-center gap-0.5">
-            {items.map(({ href, label, icon: Icon }) => {
-              const active = isActive(href);
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className="relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[#A8B0C2] hover:text-white transition-colors duration-200"
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {label}
-                  {active && (
-                    <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 w-6 h-[2px] bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
-          <a
-            href="https://github.com/DMV247/KanoteCode-Downloads/raw/refs/heads/main/Release/KanoteCode.apk"
-            download
-            className="inline-flex items-center justify-center rounded-full font-bold bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer px-4 py-2 text-sm"
-          >
-            ⬇ Tải APK
-          </a>
+          <div className="flex items-center gap-3">
+            <nav className="hidden md:flex items-center gap-0.5">
+              {items.map(({ href, label, icon: Icon }) => {
+                const active = isActive(href);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[#A8B0C2] hover:text-white transition-colors duration-200"
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {label}
+                    {active && (
+                      <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 w-6 h-[2px] bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+            <a
+              href="https://github.com/DMV247/KanoteCode-Downloads/raw/refs/heads/main/Release/KanoteCode.apk"
+              download
+              className="hidden md:inline-flex items-center justify-center rounded-full font-bold bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer px-4 py-2 text-sm"
+            >
+              ⬇ Tải APK
+            </a>
+            <button
+              onClick={() => setOpen(!open)}
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full border border-[#162B55] bg-[#0A1630]/50 hover:border-violet-500/50 hover:bg-[#0A1630] transition-colors"
+            >
+              {open ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
+            </button>
+          </div>
         </div>
       </div>
+      {open && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
+          <div
+            ref={ref}
+            className="absolute top-14 left-4 right-4 mx-auto glass border border-[#162B55]/50 rounded-2xl p-4 shadow-xl shadow-violet-500/20 max-w-xs"
+          >
+            <nav className="flex flex-col gap-1">
+              {items.map(({ href, label, icon: Icon }) => {
+                const active = isActive(href);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className={`relative flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                      active
+                        ? "bg-gradient-to-r from-violet-500/20 to-blue-500/20 text-white"
+                        : "text-[#A8B0C2] hover:text-white hover:bg-[#0A1630]/80"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    {label}
+                    {active && (
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-gradient-to-b from-violet-500 to-blue-500 rounded-full" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+            <div className="mt-3 pt-3 border-t border-[#162B55]/50">
+              <a
+                href="https://github.com/DMV247/KanoteCode-Downloads/raw/refs/heads/main/Release/KanoteCode.apk"
+                download
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center rounded-full font-bold bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer px-6 py-3 text-sm w-full"
+              >
+                ⬇ Tải APK
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
