@@ -369,7 +369,7 @@ function Story() {
         </motion.div>
 
         <div
-          className="relative w-full aspect-auto md:aspect-[16/9] min-h-[550px] md:min-h-[500px] rounded-3xl overflow-hidden cursor-pointer"
+          className="relative w-full aspect-auto md:aspect-[16/9] min-h-[650px] md:min-h-[500px] rounded-3xl overflow-hidden cursor-pointer"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onClick={() => setCurrent((prev) => (prev + 1) % total)}
