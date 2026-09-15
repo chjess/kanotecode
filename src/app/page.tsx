@@ -369,7 +369,7 @@ function Story() {
         </motion.div>
 
         <div
-          className="relative w-full aspect-[16/9] min-h-[400px] md:min-h-[500px] rounded-3xl overflow-hidden cursor-pointer"
+          className="relative w-full aspect-auto md:aspect-[16/9] min-h-[400px] md:min-h-[500px] rounded-3xl overflow-hidden cursor-pointer"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onClick={() => setCurrent((prev) => (prev + 1) % total)}
@@ -394,10 +394,10 @@ function Story() {
             </motion.div>
           </AnimatePresence>
 
-          <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait">
             <motion.div
               key={`text-${current}`}
-              className="absolute inset-0 flex items-center justify-center px-8 md:px-16"
+              className="absolute inset-0 flex items-center justify-center px-8 md:px-16 overflow-y-auto md:overflow-y-visible"
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
