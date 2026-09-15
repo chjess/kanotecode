@@ -83,7 +83,7 @@ export function Header() {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
           <div
             ref={ref}
-            className="absolute top-14 left-4 right-4 mx-auto glass border border-[#162B55]/50 rounded-2xl p-4 shadow-xl shadow-violet-500/20 max-w-xs"
+            className="absolute top-14 left-4 right-4 mx-auto bg-[#0E1525]/95 border border-[#162B55] rounded-2xl p-4 shadow-xl shadow-violet-500/30 max-w-xs"
           >
             <nav className="flex flex-col gap-1">
               {items.map(({ href, label, icon: Icon }) => {
@@ -96,7 +96,7 @@ export function Header() {
                     className={`relative flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                       active
                         ? "bg-gradient-to-r from-violet-500/20 to-blue-500/20 text-white"
-                        : "text-[#A8B0C2] hover:text-white hover:bg-[#0A1630]/80"
+                        : "text-[#E0E6F0] hover:text-white hover:bg-[#1A2540]/80"
                     }`}
                   >
                     <Icon className="w-5 h-5" />
