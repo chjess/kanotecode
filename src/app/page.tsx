@@ -220,14 +220,14 @@ function Story() {
     {
       content: (
         <div className="max-w-2xl">
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">Có những ý tưởng xuất hiện vào lúc nửa đêm.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Khi trước mặt chỉ còn một chiếc điện thoại, một ý tưởng chưa thành hình, và một câu hỏi rất đơn giản:</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">Có những ý tưởng xuất hiện vào lúc nửa đêm.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Khi trước mặt chỉ còn một chiếc điện thoại, một ý tưởng chưa thành hình, và một câu hỏi rất đơn giản:</p>
           <p className="text-2xl md:text-3xl font-extrabold text-white mb-8 border-l-4 border-violet-500 pl-6">"Nếu không có PC thì sao?"</p>
-          <p className="text-lg text-[#C8D0E0] mb-3">Không máy tính.</p>
-          <p className="text-lg text-[#C8D0E0] mb-3">Không VPS.</p>
-          <p className="text-lg text-[#C8D0E0] mb-3">Không một môi trường phát triển quen thuộc.</p>
-          <p className="text-lg text-[#C8D0E0] mb-6">Chỉ có chiếc điện thoại đang nằm trong tay.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-6">Vậy liệu có thể mang một coding agent vào đó không?</p>
+          <p className="text-sm text-[#C8D0E0] mb-3">Không máy tính.</p>
+          <p className="text-sm text-[#C8D0E0] mb-3">Không VPS.</p>
+          <p className="text-sm text-[#C8D0E0] mb-3">Không một môi trường phát triển quen thuộc.</p>
+          <p className="text-sm text-[#C8D0E0] mb-6">Chỉ có chiếc điện thoại đang nằm trong tay.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-6">Vậy liệu có thể mang một coding agent vào đó không?</p>
           <p className="text-xl md:text-2xl font-bold text-white">KanoteCode bắt đầu từ chính câu hỏi đó.</p>
         </div>
       ),
@@ -236,12 +236,12 @@ function Story() {
       content: (
         <div className="max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Không phải một sản phẩm hoàn hảo</h2>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">KanoteCode không được tạo ra với mục tiêu trở thành một ứng dụng hoàn hảo ngay từ phiên bản đầu tiên.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Nó bắt đầu khá vụng về.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">KanoteCode không được tạo ra với mục tiêu trở thành một ứng dụng hoàn hảo ngay từ phiên bản đầu tiên.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Nó bắt đầu khá vụng về.</p>
           <div className="space-y-3 mb-6">
-            <p className="text-lg text-[#C8D0E0] flex items-start gap-3"><span className="text-violet-400">▸</span> Có những thứ hoạt động chưa thật mượt.</p>
-            <p className="text-lg text-[#C8D0E0] flex items-start gap-3"><span className="text-violet-400">▸</span> Có những tính năng còn đang thử nghiệm.</p>
-            <p className="text-lg text-[#C8D0E0] flex items-start gap-3"><span className="text-violet-400">▸</span> Có những giới hạn mà chúng tôi vẫn đang tìm cách vượt qua.</p>
+            <p className="text-sm text-[#C8D0E0] flex items-start gap-3"><span className="text-violet-400">▸</span> Có những thứ hoạt động chưa thật mượt.</p>
+            <p className="text-sm text-[#C8D0E0] flex items-start gap-3"><span className="text-violet-400">▸</span> Có những tính năng còn đang thử nghiệm.</p>
+            <p className="text-sm text-[#C8D0E0] flex items-start gap-3"><span className="text-violet-400">▸</span> Có những giới hạn mà chúng tôi vẫn đang tìm cách vượt qua.</p>
           </div>
           <p className="text-xl md:text-2xl text-white font-semibold mb-3">Nhưng có một điều KanoteCode muốn giữ lại:</p>
           <p className="text-xl md:text-2xl font-bold text-white">Bạn không nhất thiết phải ngồi trước một chiếc PC mới có thể bắt đầu xây dựng một thứ gì đó.</p>
@@ -252,7 +252,7 @@ function Story() {
       content: (
         <div className="max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Từ một ý tưởng nhỏ</h2>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Ban đầu chỉ là một câu hỏi. Sau đó là một project.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Ban đầu chỉ là một câu hỏi. Sau đó là một project.</p>
           <div className="space-y-3 mb-6">
             {[
               "Rồi một editor",
@@ -267,13 +267,13 @@ function Story() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-lg text-[#C8D0E0] flex items-start gap-3"
+                className="text-sm text-[#C8D0E0] flex items-start gap-3"
               >
                 <span className="text-violet-400 font-bold">0{i + 1}</span> {item}
               </motion.p>
             ))}
           </div>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-4">Từng thứ một được ghép lại.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-4">Từng thứ một được ghép lại.</p>
           <p className="text-2xl md:text-3xl font-bold text-white mb-3">"Android có làm được không?"</p>
           <p className="text-xl md:text-2xl font-bold text-violet-300">Nếu câu trả lời là có thể — thì thử.</p>
         </div>
@@ -283,12 +283,12 @@ function Story() {
       content: (
         <div className="max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Vì vậy, KanoteCode vẫn đang được viết dở</h2>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">Và có lẽ điều đó cũng không sao.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Một ứng dụng dành cho việc biến ý tưởng thành code thì bản thân nó cũng nên được xây dựng theo cách đó:</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">Và có lẽ điều đó cũng không sao.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Một ứng dụng dành cho việc biến ý tưởng thành code thì bản thân nó cũng nên được xây dựng theo cách đó:</p>
           <p className="text-xl md:text-2xl text-white font-semibold mb-3 italic">từng dòng một, từng phiên bản một.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-3">Hôm nay nó có thể làm được một việc.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-3">Ngày mai có thể thêm một tool.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] leading-relaxed">Và biết đâu, một trong những tính năng tiếp theo lại bắt đầu từ chính một góp ý của bạn.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-3">Hôm nay nó có thể làm được một việc.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-3">Ngày mai có thể thêm một tool.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] leading-relaxed">Và biết đâu, một trong những tính năng tiếp theo lại bắt đầu từ chính một góp ý của bạn.</p>
         </div>
       ),
     },
@@ -297,13 +297,13 @@ function Story() {
         <div className="max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Nếu bạn đang xây dựng một thứ gì đó...</h2>
           <div className="space-y-4 mb-6">
-            <p className="text-lg md:text-xl text-[#C8D0E0]"><span className="text-violet-400 font-bold">→</span> Có thể bạn là developer.</p>
-            <p className="text-lg md:text-xl text-[#C8D0E0]"><span className="text-violet-400 font-bold">→</span> Có thể bạn chỉ đang học code.</p>
-            <p className="text-lg md:text-xl text-[#C8D0E0]"><span className="text-violet-400 font-bold">→</span> Hoặc đơn giản là bạn có một ý tưởng và muốn thử.</p>
+            <p className="text-sm md:text-xl text-[#C8D0E0]"><span className="text-violet-400 font-bold">→</span> Có thể bạn là developer.</p>
+            <p className="text-sm md:text-xl text-[#C8D0E0]"><span className="text-violet-400 font-bold">→</span> Có thể bạn chỉ đang học code.</p>
+            <p className="text-sm md:text-xl text-[#C8D0E0]"><span className="text-violet-400 font-bold">→</span> Hoặc đơn giản là bạn có một ý tưởng và muốn thử.</p>
           </div>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">KanoteCode không hứa rằng mọi thứ sẽ dễ dàng.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">Nó chỉ muốn giúp bạn bắt đầu nhanh hơn.</p>
-          <p className="text-lg md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Mở điện thoại. Mở project. Nói với agent điều bạn muốn làm. Xem nó thay đổi code. Duyệt những gì mình thích. Sửa những gì chưa đúng. Rồi tiếp tục.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">KanoteCode không hứa rằng mọi thứ sẽ dễ dàng.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-4 leading-relaxed">Nó chỉ muốn giúp bạn bắt đầu nhanh hơn.</p>
+          <p className="text-sm md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Mở điện thoại. Mở project. Nói với agent điều bạn muốn làm. Xem nó thay đổi code. Duyệt những gì mình thích. Sửa những gì chưa đúng. Rồi tiếp tục.</p>
           <p className="text-xl md:text-2xl font-bold text-white">Không cần đợi đến khi có một chiếc PC trước khi bắt đầu một ý tưởng.</p>
         </div>
       ),
@@ -314,11 +314,11 @@ function Story() {
 <p className="text-sm font-bold tracking-widest uppercase text-violet-400 mb-4">KanoteCode</p>
            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Biến ý tưởng thành code.</h2>
            <p className="text-2xl md:text-3xl gradient-text font-bold mb-8">Mọi lúc, mọi nơi.</p>
-           <p className="text-lg md:text-xl text-[#C8D0E0] mb-4">Nó vẫn còn đang hoàn thiện.</p>
-           <p className="text-lg md:text-xl text-[#C8D0E0] mb-4">Nhưng có lẽ, đó mới là phần thú vị nhất.</p>
-           <p className="text-lg md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Nếu bạn thấy nó còn thiếu điều gì, hãy nói với chúng tôi.</p>
-           <p className="text-lg text-violet-400">Vì KanoteCode không chỉ được xây dựng bằng code.</p>
-           <p className="text-lg text-violet-400">Nó được xây dựng bằng những ý tưởng mà mọi người mang đến.</p>
+           <p className="text-sm md:text-xl text-[#C8D0E0] mb-4">Nó vẫn còn đang hoàn thiện.</p>
+           <p className="text-sm md:text-xl text-[#C8D0E0] mb-4">Nhưng có lẽ, đó mới là phần thú vị nhất.</p>
+           <p className="text-sm md:text-xl text-[#C8D0E0] mb-6 leading-relaxed">Nếu bạn thấy nó còn thiếu điều gì, hãy nói với chúng tôi.</p>
+           <p className="text-sm text-violet-400">Vì KanoteCode không chỉ được xây dựng bằng code.</p>
+           <p className="text-sm text-violet-400">Nó được xây dựng bằng những ý tưởng mà mọi người mang đến.</p>
         </div>
       ),
     },
