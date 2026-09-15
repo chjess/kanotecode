@@ -77,7 +77,7 @@ function Hero() {
             </p>
             <div className="flex gap-3 flex-wrap">
               <a href="#download" className="inline-flex items-center justify-center rounded-full font-bold transition-all duration-200 cursor-pointer bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 px-8 py-4 text-lg">⬇ Tải APK về</a>
-              <Button variant="ghost" size="lg" className="px-8 py-4 text-lg">Xem tính năng</Button>
+              <a href="#features" className="inline-flex items-center justify-center rounded-full font-bold transition-all duration-200 cursor-pointer border border-violet-500/50 text-violet-200 bg-transparent hover:bg-violet-500/10 hover:border-violet-400 px-8 py-4 text-lg">Xem tính năng</a>
             </div>
             <div className="grid grid-cols-2 gap-6 mt-10">
               <Stat number="12" label="AI tools" />
