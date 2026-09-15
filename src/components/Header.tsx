@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Home, Shield, Compass, Download, Menu, X } from "lucide-react";
+import { Home, Shield, Compass, Menu, X } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname();
@@ -15,7 +15,6 @@ export function Header() {
     { href: "/", label: "Trang chủ", icon: Home },
     { href: "/security", label: "Bảo mật", icon: Shield },
     { href: "/guide", label: "Hướng dẫn", icon: Compass },
-    { href: "/#download", label: "Tải về", icon: Download },
   ];
 
   const isActive = (href: string) => {
