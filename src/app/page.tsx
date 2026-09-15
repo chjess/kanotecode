@@ -76,7 +76,7 @@ function Hero() {
               KanoteCode mang sức mạnh AI coding agent lên Android: mở project, gắn API key, chat để AI đọc code, sửa code, duyệt từng thay đổi rồi preview ngay — tất cả trên điện thoại.
             </p>
             <div className="flex gap-3 flex-wrap">
-              <Button size="lg" className="px-8 py-4 text-lg">⬇ Tải APK về</Button>
+              <a href="#download" className="inline-flex items-center justify-center rounded-full font-bold transition-all duration-200 cursor-pointer bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 px-8 py-4 text-lg">⬇ Tải APK về</a>
               <Button variant="ghost" size="lg" className="px-8 py-4 text-lg">Xem tính năng</Button>
             </div>
             <div className="grid grid-cols-2 gap-6 mt-10">
