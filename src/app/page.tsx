@@ -2,17 +2,29 @@
 
 import * as React from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs } from "@/components/ui/tabs";
 import {
   Wrench, GitCompare, MonitorPlay, FolderOpen, FileCode,
-  Terminal, Shield, Sparkles, ChevronLeft, ChevronRight, Smartphone, Zap, Cpu
+  Terminal, Shield, Sparkles, ChevronLeft, ChevronRight, Smartphone, Zap, Cpu, ArrowUp
 } from "lucide-react";
 
 export default function Home() {
+  const [showTop, setShowTop] = useState(false);
+
+  React.useEffect(() => {
+    const handle = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", handle);
+    return () => window.removeEventListener("scroll", handle);
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <main>
       <Hero />
@@ -24,6 +36,15 @@ export default function Home() {
       <Roadmap />
       <Download />
       <Footer />
+      {showTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-1 transition-all flex items-center justify-center"
+          aria-label="Về đầu trang"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
     </main>
   );
 }
@@ -353,6 +374,22 @@ function Story() {
     return () => clearInterval(interval);
   }, [isPaused]);
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const diff = e.changedTouches[0].clientX - touchStart;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) setCurrent((prev) => (prev + 1) % total);
+      else setCurrent((prev) => (prev - 1 + total) % total);
+    }
+    setTouchStart(null);
+  };
+
   return (
     <section id="story" className="relative overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto px-6">
@@ -373,6 +410,8 @@ function Story() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onClick={() => setCurrent((prev) => (prev + 1) % total)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <AnimatePresence mode="wait">
             <motion.div

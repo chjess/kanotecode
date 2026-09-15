@@ -2,13 +2,14 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Home, Shield, Compass, Download, Menu, X } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const firstItemRef = useRef<HTMLAnchorElement>(null);
 
   const items = [
     { href: "/", label: "Trang chủ", icon: Home },
@@ -22,6 +23,8 @@ export function Header() {
     return pathname === href;
   };
 
+  const closeMenu = useCallback(() => setOpen(false), []);
+
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -31,6 +34,18 @@ export function Header() {
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
+
+  useEffect(() => {
+    if (open && firstItemRef.current) {
+      firstItemRef.current.focus();
+    }
+  }, [open]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#162B55]/30 bg-[#080B12]/80 backdrop-blur-xl">
@@ -51,13 +66,15 @@ export function Header() {
                   <Link
                     key={href}
                     href={href}
-                    className="relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[#A8B0C2] hover:text-white transition-colors duration-200"
+                    className="group relative flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[#A8B0C2] hover:text-white transition-colors duration-200"
                   >
                     <Icon className="w-3.5 h-3.5" />
                     {label}
-                    {active && (
-                      <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 w-6 h-[2px] bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" />
-                    )}
+                    <span
+                      className={`absolute -bottom-[3px] left-1/2 -translate-x-1/2 h-[2px] bg-gradient-to-r from-violet-500 to-blue-500 rounded-full transition-all duration-300 ${
+                        active ? "w-6 opacity-100" : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-100"
+                      }`}
+                    />
                   </Link>
                 );
               })}
@@ -71,6 +88,8 @@ export function Header() {
             </a>
             <button
               onClick={() => setOpen(!open)}
+              aria-label={open ? "Đóng menu" : "Mở menu"}
+              aria-expanded={open}
               className="md:hidden flex items-center justify-center w-9 h-9 rounded-full border border-[#162B55] bg-[#0A1630]/50 hover:border-violet-500/50 hover:bg-[#0A1630] transition-colors"
             >
               {open ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
@@ -79,20 +98,24 @@ export function Header() {
         </div>
       </div>
       {open && (
-        <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
+        <div className="fixed inset-0 z-40 md:hidden" onKeyDown={handleKeyDown}>
+          <div className="absolute inset-0 bg-[#080B12]/95 backdrop-blur-sm" onClick={closeMenu} />
           <div
             ref={ref}
             className="absolute top-14 left-4 right-4 mx-auto bg-[#0E1525]/95 border border-[#162B55] rounded-2xl p-4 shadow-xl shadow-violet-500/30 max-w-xs"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
           >
             <nav className="flex flex-col gap-1">
-              {items.map(({ href, label, icon: Icon }) => {
+              {items.map(({ href, label, icon: Icon }, i) => {
                 const active = isActive(href);
                 return (
                   <Link
                     key={href}
                     href={href}
-                    onClick={() => setOpen(false)}
+                    ref={i === 0 ? firstItemRef : null}
+                    onClick={closeMenu}
                     className={`relative flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                       active
                         ? "bg-gradient-to-r from-violet-500/20 to-blue-500/20 text-white"
@@ -112,7 +135,7 @@ export function Header() {
               <a
                 href="https://github.com/DMV247/KanoteCode-Downloads/raw/refs/heads/main/Release/KanoteCode.apk"
                 download
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
                 className="inline-flex items-center justify-center rounded-full font-bold bg-gradient-to-r from-violet-500 to-blue-500 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer px-6 py-3 text-sm w-full"
               >
                 ⬇ Tải APK
